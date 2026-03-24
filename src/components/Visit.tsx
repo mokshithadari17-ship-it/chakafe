@@ -118,16 +118,12 @@ export default function Visit() {
         {/* Map */}
         <Reveal className="bento-card lg:col-span-3 p-0 min-h-[400px] overflow-hidden" delay={0.1}>
           <div className="w-full h-full relative min-h-[400px]">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3801.5!2d83.3012!3d17.7231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDQzJzIzLjIiTiA4M8KwMTgnMDQuMyJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) saturate(0.7)", minHeight: 400 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Cha Kafe location - Chinna Waltair, Visakhapatnam"
-            />
+            <a href="https://maps.app.goo.gl/YourRealGoogleMapsLink" target="_blank" rel="noopener"
+              className="w-full h-full min-h-[400px] flex flex-col items-center justify-center gap-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
+              <MapPin className="text-primary" size={48} />
+              <p className="font-serif text-2xl font-bold text-foreground">View on Google Maps</p>
+              <p className="text-muted-foreground text-sm">Tap to open directions in Google Maps</p>
+            </a>
             <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, hsl(var(--background) / 0.4) 0%, transparent 30%)" }} />
           </div>
         </Reveal>
