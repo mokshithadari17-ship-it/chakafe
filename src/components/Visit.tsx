@@ -1,6 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin } from "lucide-react";
+import { MapPin, Camera } from "lucide-react";
+import shopPhoto from "@/assets/shop-photo.png";
+import kesarTea from "@/assets/shop-kesar-tea.png";
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
@@ -24,7 +26,7 @@ export default function Visit() {
         </Reveal>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-16">
         {/* Address */}
         <Reveal className="bento-card lg:col-span-2 p-10 flex flex-col justify-between">
           <div>
@@ -63,6 +65,50 @@ export default function Visit() {
               title="Cha Kafe location - Chinna Waltair, Visakhapatnam"
             />
             <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, hsl(var(--background) / 0.4) 0%, transparent 30%)" }} />
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Real Photos Gallery */}
+      <Reveal delay={0.2}>
+        <div className="flex items-center gap-3 mb-8">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Camera className="text-primary" size={18} />
+          </div>
+          <div>
+            <h3 className="font-serif text-2xl font-bold text-foreground">Real Photos</h3>
+            <p className="text-muted-foreground text-sm">Straight from Cha Kafe</p>
+          </div>
+        </div>
+      </Reveal>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <Reveal delay={0.25}>
+          <div className="bento-card p-0 overflow-hidden group">
+            <img
+              src={shopPhoto}
+              alt="Chai and Masala Bun at Cha Kafe, Chinna Waltair Visakhapatnam"
+              className="w-full h-[320px] object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="p-4">
+              <p className="font-bold text-foreground text-sm">Chai & Masala Bun</p>
+              <p className="text-xs text-muted-foreground">Our signature combo</p>
+            </div>
+          </div>
+        </Reveal>
+        <Reveal delay={0.35}>
+          <div className="bento-card p-0 overflow-hidden group">
+            <img
+              src={kesarTea}
+              alt="Kesar Elaichi Tea at Cha Kafe, Chinna Waltair Visakhapatnam"
+              className="w-full h-[320px] object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="p-4">
+              <p className="font-bold text-foreground text-sm">Kesar Elaichi Tea</p>
+              <p className="text-xs text-muted-foreground">Customer favourite</p>
+            </div>
           </div>
         </Reveal>
       </div>
