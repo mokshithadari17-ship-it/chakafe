@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useOpenStatus } from "@/hooks/useOpenStatus";
 import { Phone, MapPin, ClipboardList } from "lucide-react";
-import heroImg from "@/assets/hero-chai.jpg";
+import heroImg from "@/assets/hero-chai.png";
 
 export default function Hero() {
   const status = useOpenStatus();
