@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useOpenStatus } from "@/hooks/useOpenStatus";
 import { Phone, MapPin, ClipboardList } from "lucide-react";
-import heroImg from "@/assets/hero-chai.png";
+import heroImg from "@/assets/hero-chai.jpg";
+import shopPhoto from "@/assets/shop-photo.png";
 
 export default function Hero() {
   const status = useOpenStatus();
@@ -95,20 +96,32 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right image */}
+        {/* Right — dual image stack */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="relative flex justify-center items-center"
+          className="relative flex flex-col gap-5 items-center"
         >
+          {/* Main AI hero image */}
           <div className="hero-img-wrap w-full max-w-md">
             <img
               src={heroImg}
               alt="Masala chai in glass cup with spices at Cha Kafe Visakhapatnam"
-              className="w-full h-[520px] object-cover"
+              className="w-full h-[340px] object-cover"
               width={896}
               height={1152}
+            />
+          </div>
+
+          {/* Real shop photo */}
+          <div className="hero-img-wrap w-full max-w-md">
+            <img
+              src={shopPhoto}
+              alt="Cha Kafe shop - chai and masala bun at Chinna Waltair Visakhapatnam"
+              className="w-full h-[240px] object-cover"
+              width={600}
+              height={400}
             />
           </div>
 
