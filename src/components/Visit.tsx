@@ -1,8 +1,17 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { MapPin, Camera } from "lucide-react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
+import { MapPin, Camera, ChevronLeft, ChevronRight, X, ExternalLink } from "lucide-react";
 import shopPhoto from "@/assets/shop-photo.png";
 import kesarTea from "@/assets/shop-kesar-tea.png";
+import chaiBiscuits from "@/assets/photo-chai-biscuits.jpg";
+import purpleTea from "@/assets/photo-purple-tea.jpg";
+
+const photos = [
+  { src: shopPhoto, alt: "Chai & Masala Bun at Cha Kafe", title: "Chai & Masala Bun", desc: "Our signature combo" },
+  { src: kesarTea, alt: "Kesar Elaichi Tea at Cha Kafe", title: "Kesar Elaichi Tea", desc: "Customer favourite" },
+  { src: chaiBiscuits, alt: "Chai with biscuits & snacks at Cha Kafe", title: "Chai & Biscuits", desc: "Perfect evening snack" },
+  { src: purpleTea, alt: "Butterfly Pea Tea at Cha Kafe", title: "Butterfly Pea Tea", desc: "Signature special" },
+];
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
@@ -14,7 +23,62 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
   );
 }
 
+function Lightbox({ photos, index, onClose, onNav }: { photos: typeof import("*.jpg")[]; index: number; onClose: () => void; onNav: (i: number) => void }) {
+  const photo = (photos as any)[index] as (typeof photos)[number];
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+        onClick={onClose}
+      >
+        <button onClick={onClose} className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+          <X size={20} />
+        </button>
+
+        {index > 0 && (
+          <button
+            onClick={(e) => { e.stopPropagation(); onNav(index - 1); }}
+            className="absolute left-4 z-10 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+          >
+            <ChevronLeft size={20} />
+          </button>
+        )}
+
+        {index < photos.length - 1 && (
+          <button
+            onClick={(e) => { e.stopPropagation(); onNav(index + 1); }}
+            className="absolute right-4 z-10 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+          >
+            <ChevronRight size={20} />
+          </button>
+        )}
+
+        <motion.img
+          key={index}
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          src={(photo as any).src}
+          alt={(photo as any).alt}
+          className="max-w-[90vw] max-h-[85vh] object-contain rounded-xl"
+          onClick={(e) => e.stopPropagation()}
+        />
+
+        <div className="absolute bottom-6 text-center text-white">
+          <p className="font-bold text-sm">{(photo as any).title}</p>
+          <p className="text-xs text-white/60">{index + 1} / {photos.length}</p>
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 export default function Visit() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
   return (
     <section id="visit" className="max-w-7xl mx-auto px-6 py-28">
       <div className="mb-16">
@@ -77,41 +141,57 @@ export default function Visit() {
           </div>
           <div>
             <h3 className="font-serif text-2xl font-bold text-foreground">Real Photos</h3>
-            <p className="text-muted-foreground text-sm">Straight from Cha Kafe</p>
+            <p className="text-muted-foreground text-sm">Tap to view · Straight from Cha Kafe</p>
           </div>
         </div>
       </Reveal>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <Reveal delay={0.25}>
-          <div className="bento-card p-0 overflow-hidden group">
-            <img
-              src={shopPhoto}
-              alt="Chai and Masala Bun at Cha Kafe, Chinna Waltair Visakhapatnam"
-              className="w-full h-[320px] object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-            />
-            <div className="p-4">
-              <p className="font-bold text-foreground text-sm">Chai & Masala Bun</p>
-              <p className="text-xs text-muted-foreground">Our signature combo</p>
-            </div>
-          </div>
-        </Reveal>
-        <Reveal delay={0.35}>
-          <div className="bento-card p-0 overflow-hidden group">
-            <img
-              src={kesarTea}
-              alt="Kesar Elaichi Tea at Cha Kafe, Chinna Waltair Visakhapatnam"
-              className="w-full h-[320px] object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-            />
-            <div className="p-4">
-              <p className="font-bold text-foreground text-sm">Kesar Elaichi Tea</p>
-              <p className="text-xs text-muted-foreground">Customer favourite</p>
-            </div>
-          </div>
-        </Reveal>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {photos.map((photo, i) => (
+          <Reveal key={i} delay={0.2 + i * 0.08}>
+            <button
+              onClick={() => setLightboxIndex(i)}
+              className="bento-card p-0 overflow-hidden group w-full text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-2xl"
+            >
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className="w-full h-[220px] sm:h-[260px] object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="p-3">
+                <p className="font-bold text-foreground text-xs">{photo.title}</p>
+                <p className="text-[11px] text-muted-foreground">{photo.desc}</p>
+              </div>
+            </button>
+          </Reveal>
+        ))}
       </div>
+
+      {/* Google Maps CTA */}
+      <Reveal delay={0.5}>
+        <div className="mt-8 text-center">
+          <a
+            href="https://www.google.com/maps/place/Cha+Kafe/@17.7231,83.3012,17z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!8m2!3d17.7231!4d83.3012!16s"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-primary font-semibold hover:underline underline-offset-4 transition-colors"
+          >
+            <ExternalLink size={14} />
+            Check out Cha Kafe on Google Maps for more pictures
+          </a>
+        </div>
+      </Reveal>
+
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <Lightbox
+          photos={photos as any}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onNav={(i) => setLightboxIndex(i)}
+        />
+      )}
     </section>
   );
 }
