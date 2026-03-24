@@ -168,7 +168,7 @@ export default function Visit() {
       <Reveal delay={0.5}>
         <div className="mt-8 text-center">
           <a
-            href="https://www.google.com/maps/place/Cha+Kafe/@17.7231,83.3012,17z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!8m2!3d17.7231!4d83.3012!16s"
+            href="https://maps.app.goo.gl/YourRealGoogleMapsLink"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm text-primary font-semibold hover:underline underline-offset-4 transition-colors"

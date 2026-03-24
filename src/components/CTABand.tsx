@@ -30,10 +30,13 @@ export default function CTABand() {
         </Reveal>
         <Reveal delay={0.3}>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="tel:+919876543210" className="cta-primary text-lg px-10 py-5" style={{ boxShadow: "0 0 50px hsl(var(--gold) / 0.25)" }}>
+            <a href="tel:+919704660404" className="cta-primary text-lg px-10 py-5" style={{ boxShadow: "0 0 50px hsl(var(--gold) / 0.25)" }}>
               <Phone size={18} /> CALL TO CHECK WAIT
             </a>
-            <a href="https://maps.app.goo.gl/chakafeVizag" target="_blank" rel="noopener" className="cta-secondary text-lg px-10 py-5">
+            <a href="https://wa.me/919704660404?text=Hi%20Cha%20Kafe!%20I%27d%20like%20to%20visit." target="_blank" rel="noopener" className="cta-primary text-lg px-10 py-5" style={{ background: "hsl(142 70% 45%)", boxShadow: "0 0 50px hsl(142 70% 45% / 0.25)" }}>
+              💬 WHATSAPP US
+            </a>
+            <a href="https://maps.app.goo.gl/YourRealGoogleMapsLink" target="_blank" rel="noopener" className="cta-secondary text-lg px-10 py-5">
               <MapPin size={18} /> GET DIRECTIONS
             </a>
           </div>
