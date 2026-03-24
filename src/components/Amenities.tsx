@@ -25,7 +25,6 @@ const perks = [
 
 const nopes = [
   { emoji: "🛵", label: "No Delivery" },
-  { emoji: "🚻", label: "No Restrooms" },
   { emoji: "📅", label: "No Reservations" },
 ];
 
