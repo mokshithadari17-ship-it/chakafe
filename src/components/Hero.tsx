@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useOpenStatus } from "@/hooks/useOpenStatus";
 import { Phone, MapPin, ClipboardList } from "lucide-react";
 import heroImg from "@/assets/hero-chai.jpg";
-import shopPhoto from "@/assets/shop-photo.png";
 
 export default function Hero() {
   const status = useOpenStatus();
@@ -20,7 +19,6 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left copy */}
         <div>
-          {/* Status badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,7 +70,6 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -96,43 +93,29 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right — dual image stack */}
+        {/* Right image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="relative flex flex-col gap-5 items-center"
+          className="relative flex justify-center items-center"
         >
-          {/* Main AI hero image */}
           <div className="hero-img-wrap w-full max-w-md">
             <img
               src={heroImg}
               alt="Masala chai in glass cup with spices at Cha Kafe Visakhapatnam"
-              className="w-full h-[340px] object-cover"
+              className="w-full h-[520px] object-cover"
               width={896}
               height={1152}
             />
           </div>
 
-          {/* Real shop photo */}
-          <div className="hero-img-wrap w-full max-w-md">
-            <img
-              src={shopPhoto}
-              alt="Cha Kafe shop - chai and masala bun at Chinna Waltair Visakhapatnam"
-              className="w-full h-[240px] object-cover"
-              width={600}
-              height={400}
-            />
-          </div>
-
-          {/* Floating best seller card */}
           <div className="animate-float absolute -top-4 -left-4 md:-left-10 glass-card rounded-2xl px-4 py-3 shadow-2xl text-sm">
             <p className="text-primary font-bold text-xs uppercase tracking-wider mb-1">Best Seller</p>
             <p className="font-bold text-foreground">Cha Kafe Special</p>
             <p className="text-2xl font-black text-primary">₹20</p>
           </div>
 
-          {/* Floating payment card */}
           <div className="absolute -bottom-4 -right-4 md:-right-8 glass-card rounded-2xl px-4 py-3 shadow-2xl text-center"
             style={{ animation: "float 4s 1s ease-in-out infinite" }}>
             <p className="text-xs text-muted-foreground mb-1">We accept</p>
@@ -145,7 +128,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll hint */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/50 text-xs uppercase tracking-[0.25em]">
         <span>Scroll</span>
         <div className="w-px h-8 bg-gradient-to-b from-primary/50 to-transparent animate-pulse" />
