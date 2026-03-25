@@ -168,7 +168,8 @@ export default function Visit() {
       <Reveal delay={0.5}>
         <div className="mt-8 text-center">
           <a
-            href="https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Chinna+Waltair+Visakhapatnam"
+            href="https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Visakhapatnam&query_place_id=ChIJJfiuuPlDOToRNJULM98N8eA"
+            onClick={(e) => { e.preventDefault(); window.open('https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Visakhapatnam&query_place_id=ChIJJfiuuPlDOToRNJULM98N8eA', '_blank'); }}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm text-primary font-semibold hover:underline underline-offset-4 transition-colors"
