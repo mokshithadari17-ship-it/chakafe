@@ -7,6 +7,7 @@ import Amenities from "@/components/Amenities";
 import Visit from "@/components/Visit";
 import CTABand from "@/components/CTABand";
 import Footer from "@/components/Footer";
+import BottomNav from "@/components/BottomNav";
 
 const Index = () => {
   return (
@@ -23,6 +24,8 @@ const Index = () => {
       <Visit />
       <CTABand />
       <Footer />
+      <div className="h-20 md:hidden" />
+      <BottomNav />
     </div>
   );
 };
