@@ -82,7 +82,7 @@ export default function Navbar() {
             <a href="https://wa.me/919704660404?text=Hi%20Cha%20Kafe!" target="_blank" rel="noopener" className="cta-primary text-sm px-4 py-2" style={{ background: "hsl(142 70% 45%)" }}>
               💬 WhatsApp
             </a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Visakhapatnam&query_place_id=ChIJJfiuuPlDOToRNJULM98N8eA" target="_blank" rel="noopener noreferrer" onClick={(e) => { e.preventDefault(); window.open('https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Visakhapatnam&query_place_id=ChIJJfiuuPlDOToRNJULM98N8eA', '_blank'); }} className="cta-secondary text-sm px-4 py-2">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Cha+Kafe+Chinna+Waltair+Visakhapatnam&destination_place_id=ChIJJfiuuPlDOToRNJULM98N8eA" target="_blank" rel="noopener noreferrer" onClick={(e) => { e.preventDefault(); window.open('https://www.google.com/maps/dir/?api=1&destination=Cha+Kafe+Chinna+Waltair+Visakhapatnam&destination_place_id=ChIJJfiuuPlDOToRNJULM98N8eA', '_blank'); }} className="cta-secondary text-sm px-4 py-2">
               <MapPin size={14} /> Directions
             </a>
           </div>
