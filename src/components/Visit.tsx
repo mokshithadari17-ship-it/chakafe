@@ -110,7 +110,7 @@ export default function Visit() {
               <p className="text-sm text-muted-foreground">🏫 Next to GVMC School<br />🕌 Steps from the Masjid<br />🏢 Opposite Prince Apartments</p>
             </div>
           </div>
-          <a href="https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Chinna+Waltair+Visakhapatnam" target="_blank" rel="noopener" className="cta-primary mt-8 justify-center">
+          <a href="https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Visakhapatnam&query_place_id=ChIJJfiuuPlDOToRNJULM98N8eA" target="_blank" rel="noopener noreferrer" onClick={(e) => { e.preventDefault(); window.open('https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Visakhapatnam&query_place_id=ChIJJfiuuPlDOToRNJULM98N8eA', '_blank'); }} className="cta-primary mt-8 justify-center">
             <MapPin size={16} /> OPEN IN GOOGLE MAPS
           </a>
         </Reveal>
