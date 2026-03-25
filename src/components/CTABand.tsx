@@ -36,7 +36,7 @@ export default function CTABand() {
             <a href="https://wa.me/919704660404?text=Hi%20Cha%20Kafe!%20I%27d%20like%20to%20visit." target="_blank" rel="noopener" className="cta-primary text-lg px-10 py-5" style={{ background: "hsl(142 70% 45%)", boxShadow: "0 0 50px hsl(142 70% 45% / 0.25)" }}>
               💬 WHATSAPP US
             </a>
-            <a href="https://maps.app.goo.gl/YourRealGoogleMapsLink" target="_blank" rel="noopener" className="cta-secondary text-lg px-10 py-5">
+            <a href="https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Chinna+Waltair+Visakhapatnam" target="_blank" rel="noopener" className="cta-secondary text-lg px-10 py-5">
               <MapPin size={18} /> GET DIRECTIONS
             </a>
           </div>
