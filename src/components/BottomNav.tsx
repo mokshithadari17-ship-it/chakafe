@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Home, ClipboardList, MapPin, Phone } from "lucide-react";
 
-const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Visakhapatnam&query_place_id=ChIJJfiuuPlDOToRNJULM98N8eA";
+const MAPS_URL = "https://www.google.com/maps/dir/?api=1&destination=Cha+Kafe+Chinna+Waltair+Visakhapatnam&destination_place_id=ChIJJfiuuPlDOToRNJULM98N8eA";
 
 const tabs = [
   { icon: Home, label: "Home", action: "scroll", target: "#" },
