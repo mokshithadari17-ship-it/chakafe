@@ -118,7 +118,7 @@ export default function Visit() {
         {/* Map */}
         <Reveal className="bento-card lg:col-span-3 p-0 min-h-[400px] overflow-hidden" delay={0.1}>
           <div className="w-full h-full relative min-h-[400px]">
-            <a href="https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Chinna+Waltair+Visakhapatnam" target="_blank" rel="noopener"
+            <a href="https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Visakhapatnam&query_place_id=ChIJJfiuuPlDOToRNJULM98N8eA" target="_blank" rel="noopener noreferrer" onClick={(e) => { e.preventDefault(); window.open('https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Visakhapatnam&query_place_id=ChIJJfiuuPlDOToRNJULM98N8eA', '_blank'); }}
               className="w-full h-full min-h-[400px] flex flex-col items-center justify-center gap-4 bg-muted/30 hover:bg-muted/50 transition-colors cursor-pointer">
               <MapPin className="text-primary" size={48} />
               <p className="font-serif text-2xl font-bold text-foreground">View on Google Maps</p>
