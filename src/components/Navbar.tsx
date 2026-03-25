@@ -82,7 +82,7 @@ export default function Navbar() {
             <a href="https://wa.me/919704660404?text=Hi%20Cha%20Kafe!" target="_blank" rel="noopener" className="cta-primary text-sm px-4 py-2" style={{ background: "hsl(142 70% 45%)" }}>
               💬 WhatsApp
             </a>
-            <a href="https://maps.app.goo.gl/YourRealGoogleMapsLink" target="_blank" rel="noopener" className="cta-secondary text-sm px-4 py-2">
+            <a href="https://www.google.com/maps/search/?api=1&query=Cha+Kafe+Chinna+Waltair+Visakhapatnam" target="_blank" rel="noopener" className="cta-secondary text-sm px-4 py-2">
               <MapPin size={14} /> Directions
             </a>
           </div>
